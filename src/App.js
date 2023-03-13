@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, NavLink, useNavigate, Switch } from 'react-router-dom';
+import { Route, NavLink, useNavigate } from 'react-router-dom';
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -29,29 +29,28 @@ function App() {
                         </NavLink>
                     </li>
                 </ul>
-                    <input type="text" name="search" placeholder="Search photos..." />
-                    <button type="submit">Search</button>
             </nav>
-            <Switch>
-                <Route path="/" exact>
-                    <Home />
-                </Route>
-                <Route path="/about">
-                    <About />
-                </Route>
-                <Route path="/contact">
-                    <Contact />
-                </Route>
-                <Route path="/photo" exact>
-                    <Photo />
-                </Route>
-                <Route path="/photo/:id">
-                    <PhotoDetail />
-                </Route>
-                <Route path="*">
-                    <NotFound />
-                </Route>
-            </Switch>
+            <Route path="/" exact>
+                <Home />
+            </Route>
+            <Route path="/about">
+                <About />
+            </Route>
+            <Route path="/contact">
+                <Contact />
+            </Route>
+            <Route path="/photo" exact>
+                <Photo />
+            </Route>
+            <Route path="/photo/:id">
+                <PhotoDetail />
+            </Route>
+            <Route path="/404">
+                <NotFound />
+            </Route>
+            <Route path="*">
+                <Navigate to="/404" />
+            </Route>
         </div>
     );
 }
